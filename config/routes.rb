@@ -1,5 +1,24 @@
+# == Route Map
+#
+#       Prefix Verb   URI Pattern                  Controller#Action
+# upvote_topic POST   /topics/:id/upvote(.:format) topics#upvote
+#       topics GET    /topics(.:format)            topics#index
+#              POST   /topics(.:format)            topics#create
+#    new_topic GET    /topics/new(.:format)        topics#new
+#   edit_topic GET    /topics/:id/edit(.:format)   topics#edit
+#        topic GET    /topics/:id(.:format)        topics#show
+#              PATCH  /topics/:id(.:format)        topics#update
+#              PUT    /topics/:id(.:format)        topics#update
+#              DELETE /topics/:id(.:format)        topics#destroy
+#         root GET    /                            topics#index
+#
+
 Rails.application.routes.draw do
-  resources :topics
+  resources :topics do
+    member do
+      post 'upvote'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
